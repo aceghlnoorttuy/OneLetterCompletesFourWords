@@ -1,0 +1,54 @@
+<%- include("partials/solution-header.ejs") %>
+<% if (fishcat == "bat"){%>
+
+<div id = writing> 
+<%console.log(`menow${sCore}`);%>
+<h2>Score: <%=sCore%></h2>
+<h2>In these questions, the same letter must fit into both sets of brackets, to complete the word in front of the brackets and begin the word after the brackets. Select the letter from the 5 offered.</h2>
+<h2><%= allInfo[0] %> (?) <%= allInfo[1] %></h2>
+<h2><%= allInfo[2] %> (?) <%= allInfo[3] %></h2>
+</div>    
+
+
+<form action="/submit" method = "POST">
+  
+  <label for="playerAnswer">Answer:</label><br>
+  <select name="playerAnswer" id = "yesme">
+    <option value=<%=possibleAnswer[0]%>><%=possibleAnswer[0]%></option>
+    <option value=<%=possibleAnswer[1]%>><%=possibleAnswer[1]%></option>
+    <option value=<%=possibleAnswer[2]%>><%=possibleAnswer[2]%></option>
+    <option value=<%=possibleAnswer[3]%>><%=possibleAnswer[3]%></option>
+    <option value=<%=possibleAnswer[4]%>><%=possibleAnswer[4]%></option>
+    <input type="hidden" name="actualanswer" value=<%=allInfo[4]%>>
+    <input type="hidden" name="sCore" value="<%=sCore%>">
+    
+  </select><br><br>
+  <input type="submit" value="Submit" id="mebutton">
+  <br>
+  <br>
+</form><%}
+ else if (fishcat == "frog"){
+  console.log("happy");
+   if (whatDidTheyPut == correctAnswer){
+  scOre++; %>
+    <h1>You were correct. Score: <%=scOre%></h1><%}
+    else{
+      console.log(scOre);%><h1>You were wrong. Score: <%=scOre%></h1><%}%>
+    <form class="spacer" action="/playagain" method="post">
+      <input type="hidden" name="sCore" value="<%=scOre%> " >
+      <input class="submit" type="submit" value="Play Again" >
+</form>
+      <%} %>
+
+
+
+
+
+
+
+
+
+
+        
+
+       

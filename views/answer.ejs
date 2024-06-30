@@ -1,0 +1,7 @@
+<%- include("partials/solution-header.ejs") %>
+<%console.log (`There ${whatDidTheyPut}`);
+  console.log (`There ${possibleAnswer}`);
+  console.log (`There ${allInfo}`);%>
+<h1>You answered the Question.</h1>
+<% if (possibleAnswer[whatDidTheyPut] == allInfo[4]){%>
+    <h1>You were correct.</h1><%}else{%><h1>You were wrong.</h1><%}%>
